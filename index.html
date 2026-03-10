@@ -110,49 +110,70 @@
         }
 
         .disclaimer-box {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 10px;
-            padding: 20px 24px;
+            background: rgba(255, 107, 26, 0.07);
+            border: 1.5px solid rgba(255, 107, 26, 0.5);
+            border-radius: 12px;
+            padding: 24px 28px;
             margin-bottom: 30px;
             text-align: left;
         }
 
         .disclaimer-box h4 {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #aaa;
-            margin-bottom: 12px;
+            letter-spacing: 0.1em;
+            color: #FF8C42;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .disclaimer-box h4::before {
+            content: '⚠';
+            font-size: 16px;
         }
 
         .disclaimer-box ul {
             list-style: none;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .disclaimer-box li {
-            font-size: 13px;
-            color: #888;
-            padding: 4px 0;
-            padding-left: 16px;
-            position: relative;
+            font-size: 14px;
+            color: #ccc;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
         }
 
-        .disclaimer-box li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: #555;
+        .disclaimer-box li .disc-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(255, 107, 26, 0.2);
+            border: 1px solid rgba(255, 107, 26, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            color: #FF8C42;
         }
 
         .disclaimer-accept {
-            font-size: 12px;
-            color: #666;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 12px;
+            font-size: 13px;
+            color: #aaa;
+            border-top: 1px solid rgba(255, 107, 26, 0.2);
+            padding-top: 14px;
             margin-top: 4px;
+            font-style: italic;
         }
 
         .btn-primary {
@@ -531,9 +552,9 @@
             <div class="disclaimer-box">
                 <h4>Antes de comenzar</h4>
                 <ul>
-                    <li>Esta herramienta es de uso exclusivamente formativo.</li>
-                    <li>No se recogen ni almacenan datos personales.</li>
-                    <li>Los resultados son orientativos y no constituyen una evaluación profesional.</li>
+                    <li><span class="disc-icon">✦</span> Esta herramienta es de uso exclusivamente formativo.</li>
+                    <li><span class="disc-icon">✦</span> No se recogen ni almacenan datos personales.</li>
+                    <li><span class="disc-icon">✦</span> Los resultados son orientativos y no constituyen una evaluación profesional.</li>
                 </ul>
                 <p class="disclaimer-accept">Al pulsar "Comenzar" aceptas estas condiciones.</p>
             </div>
