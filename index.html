@@ -165,6 +165,19 @@
             font-style: italic;
         }
 
+        .kilmann-note {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 24px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .kilmann-note strong {
+            color: #FF8C42;
+            font-style: normal;
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, #FF8C42 0%, #FF6B1A 100%);
             color: white;
@@ -828,19 +841,26 @@
 
         @media (max-width: 600px) {
             .matrix-wrapper {
-                padding: 70px 18px 70px 90px;
-                border-radius: 20px;
+                aspect-ratio: unset;
+                height: 360px;
+                padding: 56px 12px 56px 72px;
+                border-radius: 16px;
             }
-            .matrix-grid { gap: 10px; }
-            .matrix-axis-y { left: 56px; top: 50px; bottom: 64px; }
-            .matrix-axis-x { left: 56px; bottom: 56px; }
-            .matrix-arrow-up { left: 49px; top: 36px; }
-            .matrix-arrow-right { bottom: 50px; }
-            .matrix-label-tu { left: 36px; font-size: 18px; }
-            .matrix-label-yo { font-size: 18px; bottom: 22px; }
-            .matrix-label-interes-otro { left: 14px; font-size: 11px; }
-            .matrix-label-interes-propio { bottom: 22px; font-size: 11px; }
-            .matrix-compromiso { padding: 12px 18px; min-width: 130px; }
+            .matrix-grid { gap: 8px; }
+            .matrix-axis-y { left: 48px; top: 40px; bottom: 52px; }
+            .matrix-axis-x { left: 48px; bottom: 44px; right: 12px; }
+            .matrix-arrow-up { left: 41px; top: 26px; border-left-width: 7px; border-right-width: 7px; border-bottom-width: 11px; }
+            .matrix-arrow-right { right: 4px; bottom: 38px; border-top-width: 7px; border-bottom-width: 7px; border-left-width: 11px; }
+            .matrix-label-tu { left: 28px; top: 12px; font-size: 15px; }
+            .matrix-label-yo { right: 6px; bottom: 16px; font-size: 15px; }
+            .matrix-label-interes-otro { left: 8px; font-size: 10px; }
+            .matrix-label-interes-propio { bottom: 16px; font-size: 10px; }
+            .matrix-compromiso { padding: 10px 14px; min-width: 110px; }
+            .matrix-compromiso .mc-title { font-size: 13px; }
+            .matrix-compromiso .mc-code { font-size: 10px; }
+            .matrix-cell { padding: 10px 6px; border-radius: 12px; }
+            .matrix-cell .mc-title { font-size: 12px; letter-spacing: 0; }
+            .matrix-cell .mc-code { font-size: 11px; padding: 2px 8px; }
         }
     </style>
 </head>
@@ -896,6 +916,8 @@
                 </ul>
                 <p class="disclaimer-accept" id="disclaimerAccept">Al pulsar "Comenzar" aceptas estas condiciones.</p>
             </div>
+
+            <p class="kilmann-note" id="kilmannNote">Basado en el modelo de <strong>Thomas Kilmann</strong>, referente mundial en estilos de negociación y gestión de conflictos.</p>
 
             <button class="btn-primary" id="startBtn" onclick="startQuiz()">Comenzar Cuestionario</button>
         </div>
@@ -1032,6 +1054,7 @@
                 disclaimerTitle: 'Antes de comenzar',
                 disclaimerItems: ['Esta herramienta es de uso exclusivamente formativo.', 'No se recogen ni almacenan datos personales.', 'Los resultados son orientativos y no constituyen una evaluación profesional.'],
                 disclaimerAccept: 'Al pulsar "Comenzar" aceptas estas condiciones.',
+                kilmannNote: 'Basado en el modelo de <strong>Thomas Kilmann</strong>, referente mundial en estilos de negociación y gestión de conflictos.',
                 startBtn: 'Comenzar Cuestionario',
                 questionOf: (n) => `Pregunta ${n} de 30`,
                 answered: (n) => `Respondidas: ${n}/30`,
@@ -1057,6 +1080,7 @@
                 disclaimerTitle: 'Before you begin',
                 disclaimerItems: ['This tool is for training purposes only.', 'No personal data is collected or stored.', 'Results are indicative and do not constitute a professional assessment.'],
                 disclaimerAccept: 'By clicking "Start" you accept these conditions.',
+                kilmannNote: 'Based on the model by <strong>Thomas Kilmann</strong>, a world-leading authority on negotiation styles and conflict management.',
                 startBtn: 'Start Questionnaire',
                 questionOf: (n) => `Question ${n} of 30`,
                 answered: (n) => `Answered: ${n}/30`,
@@ -1213,6 +1237,7 @@
             const discList = document.getElementById('disclaimerList');
             discList.innerHTML = t.disclaimerItems.map(item => `<li><span class="disc-icon">✦</span> ${item}</li>`).join('');
             document.getElementById('disclaimerAccept').textContent = t.disclaimerAccept;
+            document.getElementById('kilmannNote').innerHTML = t.kilmannNote;
             document.getElementById('startBtn').textContent = t.startBtn;
             document.getElementById('quickNavTitle').textContent = t.quickNavTitle;
             document.getElementById('resultsTitle').textContent = t.resultsTitle;
