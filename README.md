@@ -1,1 +1,1 @@
-# questionarioresoluciondeconflictos
+# questionarioEstilosDeNegociacion
